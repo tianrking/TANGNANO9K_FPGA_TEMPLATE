@@ -1,0 +1,28 @@
+[
+ {
+  "InstFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_loop_back.v",
+  "InstLine" : 2,
+  "InstName" : "uart_loop_back",
+  "ModuleFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_loop_back.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "uart_loop_back",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_loop_back.v",
+    "InstLine" : 16,
+    "InstName" : "uart_rx_inst",
+    "ModuleFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_rx.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "uart_rx"
+   },
+   {
+    "InstFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_loop_back.v",
+    "InstLine" : 25,
+    "InstName" : "uart_tx_inst",
+    "ModuleFile" : "C:/Users/tianr/Documents/9k_uart_loopback/src/uart_tx.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "uart_tx"
+   }
+  ]
+ }
+]
