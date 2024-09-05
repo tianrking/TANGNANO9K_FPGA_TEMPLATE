@@ -265,15 +265,6 @@ localparam TX_STATE_STOP_BIT = 3;
 
 ### 5.3 发送逻辑流程
 
-```mermaid
-graph TD
-    A[IDLE] -->|有效数据| B[START_BIT]
-    B -->|发送起始位| C[WRITE]
-    C -->|发送数据位| C
-    C -->|8位完成| D[STOP_BIT]
-    D -->|发送停止位| A
-```
-
 详细说明：
 1. IDLE 状态：等待有效数据
 2. START_BIT 状态：发送起始位（低电平）
