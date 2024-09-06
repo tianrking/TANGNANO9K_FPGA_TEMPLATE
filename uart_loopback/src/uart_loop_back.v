@@ -1,9 +1,14 @@
 // UART Loopback Module
-module uart_loop_back (
+// module uart_loop_back (
+// File: top.v
+// This file has been updated to include the new PWM generator
+
+module top (
     input clk,
     input uart_rx,
     output uart_tx,
-    output reg [5:0] led
+    output reg [5:0] led,
+    output [3:0] pwm_out  // New: 4-bit output for PWM signals
 );
     wire [7:0] rxData;
     wire rxDataValid;
@@ -11,6 +16,7 @@ module uart_loop_back (
     reg txDataValid;
     wire txBusy;
 
+    // UART receiver instance
     uart_rx #(
         .DELAY_FRAMES(234)
     ) uart_rx_inst (
@@ -20,8 +26,9 @@ module uart_loop_back (
         .rxDataValid(rxDataValid)
     );
 
+    // UART transmitter instance
     uart_tx #(
-        .DELAY_FRAMES(234)  
+        .DELAY_FRAMES(234)
     ) uart_tx_inst (
         .clk(clk),
         .txData(txData),
@@ -30,6 +37,13 @@ module uart_loop_back (
         .uart_tx(uart_tx)
     );
 
+    // New: PWM generator instance
+    pwm_generator pwm_gen (
+        .clk(clk),
+        .pwm_out(pwm_out)
+    );
+
+    // UART loopback logic
     reg [7:0] buffer [0:255];
     reg [7:0] writePtr = 0;
     reg [7:0] readPtr = 0;
@@ -63,6 +77,7 @@ module uart_loop_back (
         end
     end
 
+    // LED control logic
     always @(posedge clk) begin
         if (rxDataValid) 
             led <= ~rxData[5:0];
