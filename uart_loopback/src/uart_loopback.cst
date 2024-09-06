@@ -28,3 +28,7 @@ IO_LOC  "pwm_out[2]" 27;
 IO_PORT "pwm_out[2]" IO_TYPE=LVCMOS33;
 IO_LOC  "pwm_out[3]" 28;
 IO_PORT "pwm_out[3]" IO_TYPE=LVCMOS33;
+
+// New time sender UART TX pin
+IO_LOC  "time_tx" 30;
+IO_PORT "time_tx" IO_TYPE=LVCMOS33;
